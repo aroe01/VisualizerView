@@ -55,10 +55,13 @@ class VisualizerDataController : NSObject, AVAudioPlayerDelegate{
     }
     @objc private func trackAudio() {
         
+        let scalarValue : CGFloat = 1
+        
         //        NotificationCenter.default.addObserver(self, selector: #selector(rotated(sender:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         player.updateMeters()
         var channelData : [CGFloat] = []
         for channel in 0..<player.numberOfChannels{
+            
             let dBLogValue : Float = player.averagePower(forChannel: channel)
             
             //        dataArray.append(dBLogValue)
@@ -70,8 +73,15 @@ class VisualizerDataController : NSObject, AVAudioPlayerDelegate{
             let twoDecimalPlaces = String(format: "%.2f", invertedDBValue)
             print("Channel \(channel): \(twoDecimalPlaces)")
 //            self.HeightConstraint?.constant = invertedDBValue * 2
-            channelData.append(invertedDBValue * 2)
+            channelData.append(invertedDBValue * scalarValue)
+            
+            let peakValue : Float = player.peakPower(forChannel: channel)
+            let peakInvertedDBValue : CGFloat = -1 * CGFloat(-160 - peakValue)
+            let peakTwoDecimalPlaces = String(format: "%.2f", peakInvertedDBValue)
+            print("Channel \(channel): \(peakTwoDecimalPlaces)")
+            channelData.append(peakInvertedDBValue * scalarValue)
         }
+        
         self.delegate?.displayChannelData(data: channelData)
     }
     

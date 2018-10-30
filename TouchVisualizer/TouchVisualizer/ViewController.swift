@@ -27,7 +27,10 @@ class ViewController: UIViewController {
     fileprivate var dataController : VisualizerDataController = VisualizerDataController()
     @IBOutlet weak var visualizerView0 : VisualizerView?
     @IBOutlet weak var visualizerView1 : VisualizerView?
+    @IBOutlet weak var visualizerView0Peak : VisualizerView?
+    @IBOutlet weak var visualizerView1Peak : VisualizerView?
     
+    @IBOutlet weak var circleVisualizer : CircleVisualizerView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +38,8 @@ class ViewController: UIViewController {
 //        self.musicView.delegate = self
 //        self.musicView.dataSource = self
 //        self.visualizerView?.delegate = self
+        
+        
         self.dataController.delegate = self
         self.dataController.datasource = self
     }
@@ -43,7 +48,11 @@ class ViewController: UIViewController {
 extension ViewController : VisualizerViewDelegate{
     func displayChannelData(data: [CGFloat]) {
         self.visualizerView0?.update(data[0])
-        self.visualizerView1?.update(data[1])
+        self.visualizerView0Peak?.update(data[1])
+        self.visualizerView1?.update(data[2])
+        self.visualizerView1Peak?.update(data[3])
+        
+        self.circleVisualizer?.update(data[0])
     }
     
 }

@@ -17,6 +17,7 @@
 		0AC7F85C2187AF010009D447 /* bensound-sunny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0AC7F85B2187AF010009D447 /* bensound-sunny.mp3 */; };
 		0AC7F85E2187B3290009D447 /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7F85D2187B3290009D447 /* VisualizerView.swift */; };
 		0AC7F8602187C9010009D447 /* VisualizerDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7F85F2187C9010009D447 /* VisualizerDataController.swift */; };
+		0AC7F8632188DFD20009D447 /* CircleVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7F8622188DFD20009D447 /* CircleVisualizerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0AC7F85B2187AF010009D447 /* bensound-sunny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-sunny.mp3"; sourceTree = "<group>"; };
 		0AC7F85D2187B3290009D447 /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
 		0AC7F85F2187C9010009D447 /* VisualizerDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerDataController.swift; sourceTree = "<group>"; };
+		0AC7F8622188DFD20009D447 /* CircleVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleVisualizerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				0AC7F8592187ACE30009D447 /* IHWaveFormView.swift */,
 				0AC7F85D2187B3290009D447 /* VisualizerView.swift */,
 				0AC7F85F2187C9010009D447 /* VisualizerDataController.swift */,
+				0AC7F8622188DFD20009D447 /* CircleVisualizerView.swift */,
 			);
 			path = TouchVisualizer;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				0AC7F85E2187B3290009D447 /* VisualizerView.swift in Sources */,
 				0AC7F84D2187AC9E0009D447 /* TouchVisualizer.xcdatamodeld in Sources */,
+				0AC7F8632188DFD20009D447 /* CircleVisualizerView.swift in Sources */,
 				0AC7F8472187AC9E0009D447 /* ViewController.swift in Sources */,
 				0AC7F8602187C9010009D447 /* VisualizerDataController.swift in Sources */,
 				0AC7F85A2187ACE30009D447 /* IHWaveFormView.swift in Sources */,

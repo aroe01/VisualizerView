@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 //import Accelerate
 
-
 class VisualizerView : UIView, AVAudioPlayerDelegate{
     @IBOutlet weak var HeightConstraint : NSLayoutConstraint?
     
