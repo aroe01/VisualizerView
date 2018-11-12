@@ -6,6 +6,7 @@
 //  Copyright © 2018 Adrian. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import AVFoundation
 //import Accelerate
@@ -22,7 +23,7 @@ class VisualizerDataController : NSObject, AVAudioPlayerDelegate{
     
     private var player: AVAudioPlayer!
     private var gameTimer: Timer!
-    private var sampleRate : CGFloat = 25.0 //samples per second
+    private var sampleRate : CGFloat = 6.0 //samples per second
     private var frameLength : CGFloat = 0.0
     private var totalFrameNum : CGFloat = 0.0
 
@@ -53,9 +54,13 @@ class VisualizerDataController : NSObject, AVAudioPlayerDelegate{
             
         }
     }
+//    var low : Float = 2000
+//    var high : Float = 0
+    let scalarValue : CGFloat = 400
+    
     @objc private func trackAudio() {
         
-        let scalarValue : CGFloat = 1
+        
         
         //        NotificationCenter.default.addObserver(self, selector: #selector(rotated(sender:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         player.updateMeters()
@@ -69,21 +74,35 @@ class VisualizerDataController : NSObject, AVAudioPlayerDelegate{
             //        let twoDecimalPlaces = String(format: "%.2f", dataArray[totalCount])
             //        totalCount += 1
             //        self.generatePoints1(dBVal: twoDecimalPlaces)
-            let invertedDBValue : CGFloat = -1 * CGFloat(-160 - dBLogValue)
-            let twoDecimalPlaces = String(format: "%.2f", invertedDBValue)
-            print("Channel \(channel): \(twoDecimalPlaces)")
+            let invertedDBValue = self.normalizePowerData(dBLogValue)
+//            let twoDecimalPlaces = String(format: "%.2f", invertedDBValue)
+//            print("Channel \(channel): \(twoDecimalPlaces)")
 //            self.HeightConstraint?.constant = invertedDBValue * 2
-            channelData.append(invertedDBValue * scalarValue)
+            channelData.append(invertedDBValue )
             
             let peakValue : Float = player.peakPower(forChannel: channel)
-            let peakInvertedDBValue : CGFloat = -1 * CGFloat(-160 - peakValue)
-            let peakTwoDecimalPlaces = String(format: "%.2f", peakInvertedDBValue)
-            print("Channel \(channel): \(peakTwoDecimalPlaces)")
-            channelData.append(peakInvertedDBValue * scalarValue)
+            let peakInvertedDBValue : CGFloat = self.normalizePowerData(peakValue)
+//            let peakTwoDecimalPlaces = String(format: "%.2f", peakInvertedDBValue)
+//            print("Channel \(channel): \(peakTwoDecimalPlaces)")
+            channelData.append(peakInvertedDBValue )
         }
-        
         self.delegate?.displayChannelData(data: channelData)
     }
     
+    let numMin : CGFloat = 140
+    let numMax : CGFloat = 160
+    
+    fileprivate func normalizePowerData(_ dBLogValue : Float) -> CGFloat{
+//        low = min(low, dBLogValue)
+//        high = max(high, dBLogValue)
+//        let invertedDBValue : CGFloat = -1 * CGFloat(-160 - dBLogValue)
+        let invertedDBValue : CGFloat = CGFloat(dBLogValue + 160)
+        let adjusted = (invertedDBValue - numMin) / (numMax - numMin)
+        
+        let normalized = max(min(adjusted, 1), 0)
+        print("V: \(invertedDBValue) A: \(adjusted) N: \(normalized)")
+        
+        return normalized * scalarValue
+    }
     
 }

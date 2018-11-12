@@ -62,13 +62,9 @@
                                             <outlet property="HeightConstraint" destination="2L0-Vk-iVC" id="LGT-nX-5jo"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRL-rv-haq" customClass="CircleVisualizerView" customModule="TouchVisualizer" customModuleProvider="target">
-                                        <rect key="frame" x="87.5" y="32" width="200" height="200"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="7Ed-Nt-SS7"/>
-                                            <constraint firstAttribute="width" constant="200" id="rbf-AK-bU7"/>
-                                        </constraints>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-Js-vtJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,13 +74,15 @@
                                     <constraint firstItem="YMw-UQ-LOX" firstAttribute="width" secondItem="uhS-Lc-cye" secondAttribute="width" id="4VD-u9-ARI"/>
                                     <constraint firstItem="qpG-Kq-aie" firstAttribute="leading" secondItem="giM-AQ-7S8" secondAttribute="trailing" constant="10" id="4Xq-07-Gfo"/>
                                     <constraint firstItem="giM-AQ-7S8" firstAttribute="width" secondItem="uhS-Lc-cye" secondAttribute="width" id="6KG-er-cDO"/>
-                                    <constraint firstItem="HRL-rv-haq" firstAttribute="centerX" secondItem="jfL-ue-VEs" secondAttribute="centerX" id="6WC-Kt-nK9"/>
+                                    <constraint firstItem="XFd-Js-vtJ" firstAttribute="top" secondItem="jfL-ue-VEs" secondAttribute="top" id="9E1-rE-mSC"/>
+                                    <constraint firstItem="XFd-Js-vtJ" firstAttribute="height" secondItem="jfL-ue-VEs" secondAttribute="height" multiplier="0.5" id="E5m-44-N2V"/>
                                     <constraint firstItem="uhS-Lc-cye" firstAttribute="width" secondItem="jfL-ue-VEs" secondAttribute="width" multiplier="0.2" id="EfW-m2-MIz"/>
                                     <constraint firstItem="YMw-UQ-LOX" firstAttribute="leading" secondItem="qpG-Kq-aie" secondAttribute="trailing" constant="10" id="FPH-X2-l9Z"/>
+                                    <constraint firstItem="XFd-Js-vtJ" firstAttribute="width" secondItem="jfL-ue-VEs" secondAttribute="width" id="JTB-b0-F2c"/>
                                     <constraint firstAttribute="bottom" secondItem="uhS-Lc-cye" secondAttribute="bottom" constant="20" id="Jee-nz-bxd"/>
                                     <constraint firstItem="uhS-Lc-cye" firstAttribute="leading" secondItem="jfL-ue-VEs" secondAttribute="leading" constant="20" id="Zqu-7s-xea"/>
                                     <constraint firstItem="giM-AQ-7S8" firstAttribute="leading" secondItem="uhS-Lc-cye" secondAttribute="trailing" constant="10" id="alg-fX-ST7"/>
-                                    <constraint firstItem="HRL-rv-haq" firstAttribute="top" secondItem="jfL-ue-VEs" secondAttribute="top" constant="32" id="heT-pk-NG4"/>
+                                    <constraint firstItem="XFd-Js-vtJ" firstAttribute="centerX" secondItem="jfL-ue-VEs" secondAttribute="centerX" id="i6w-Tm-LHp"/>
                                     <constraint firstAttribute="bottom" secondItem="qpG-Kq-aie" secondAttribute="bottom" constant="20" id="jJI-2g-YC5"/>
                                     <constraint firstAttribute="bottom" secondItem="YMw-UQ-LOX" secondAttribute="bottom" constant="20" id="tMk-Ne-tBS"/>
                                 </constraints>
@@ -100,7 +98,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="circleVisualizer" destination="HRL-rv-haq" id="qoK-mr-rYH"/>
+                        <outlet property="circleAnchor" destination="XFd-Js-vtJ" id="1Pt-aj-HNH"/>
                         <outlet property="visualizerView0" destination="uhS-Lc-cye" id="M0Q-Ep-L8R"/>
                         <outlet property="visualizerView0Peak" destination="giM-AQ-7S8" id="cM1-KD-mCj"/>
                         <outlet property="visualizerView1" destination="qpG-Kq-aie" id="lI4-QV-RcK"/>
